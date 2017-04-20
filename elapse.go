@@ -7,7 +7,7 @@ type Elapse struct {
 
 // Start marks current time as start
 func (elapse *Elapse) Start() {
-	elapse.TimeMillis = TimeMs()
+	elapse.StartTime = TimeMs()
 }
 
 // Stop marks the current time as end then returns the computed elapsed time
