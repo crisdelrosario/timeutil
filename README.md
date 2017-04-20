@@ -2,6 +2,41 @@
 --
     import "github.com/crisdelrosario/timeutil"
 
+This is just a helper function for getting the current time, eitther based on
+timezone provided or just the default time.
+
+Getting the current date and time example
+
+    tu := timeutil.New("Asia/Singapore")
+    fmt.Println("Current Date and Time: ", tu.Now())
+
+Getting elapsed time
+
+    tu.Elapse.Start()
+    count := 1000000000
+    size := count / 100
+    x := 0
+    y := 0
+    for y < count {
+    	if (y % size) == 0 {
+    		fmt.Print(".")
+    	}
+
+    	for x < count {
+    		x++
+    	}
+    	y++
+    }
+    fmt.Println("")
+
+    elapsed := tu.Elapse.Stop()
+    measurement := "ms"
+    if elapsed > 1000 {
+    	elapsed = elapsed / 1000
+    	measurement = "s"
+    }
+
+    fmt.Println("Elapsed Time: ", elapsed, measurement)
 
 ## Usage
 
@@ -73,7 +108,7 @@ CurrentTime Get system's current time
 ```go
 func (tu *TimeUtil) GetLocalTime() time.Time
 ```
-GetLocaTime get local time based on timezone. Sets 'Asia/Sinagpore' as the
+GetLocalTime get local time based on timezone. Sets 'Asia/Sinagpore' as the
 default timezone if not set
 
 #### func (*TimeUtil) Now
