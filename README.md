@@ -51,7 +51,6 @@ TimeMs Returns Unix time in milliseconds for benchmarking Svc performance.
 
 ```go
 type Elapse struct {
-	StartTime int64
 }
 ```
 
@@ -71,49 +70,57 @@ func (elapse *Elapse) Stop() int64
 ```
 Stop marks the current time as end then returns the computed elapsed time
 
-#### type TimeUtil
+#### type Time
 
 ```go
-type TimeUtil struct {
+type Time struct {
 	TZ     string
 	Elapse Elapse
 }
 ```
 
-TimeUtil ...
+Time Time utility
 
 #### func  New
 
 ```go
-func New(timezone string) TimeUtil
+func New(timezone string) Time
 ```
 New create new TimeUtil instance
 
-#### func (*TimeUtil) CurrentDate
+#### func (*Time) CurrentDate
 
 ```go
-func (tu *TimeUtil) CurrentDate() string
+func (tu *Time) CurrentDate() string
 ```
 CurrentDate Get system's current date
 
-#### func (*TimeUtil) CurrentTime
+#### func (*Time) CurrentTime
 
 ```go
-func (tu *TimeUtil) CurrentTime() string
+func (tu *Time) CurrentTime() string
 ```
 CurrentTime Get system's current time
 
-#### func (*TimeUtil) GetLocalTime
+#### func (*Time) FormatDate
 
 ```go
-func (tu *TimeUtil) GetLocalTime() time.Time
+func (tu *Time) FormatDate(layout string, value string) string
+```
+FormatDate parses the value of the given time then formats it equivalent to the
+format given
+
+#### func (*Time) GetLocalTime
+
+```go
+func (tu *Time) GetLocalTime() time.Time
 ```
 GetLocalTime get local time based on timezone. Sets 'Asia/Sinagpore' as the
 default timezone if not set
 
-#### func (*TimeUtil) Now
+#### func (*Time) Now
 
 ```go
-func (tu *TimeUtil) Now() string
+func (tu *Time) Now() string
 ```
 Now Get the system's current date and time
