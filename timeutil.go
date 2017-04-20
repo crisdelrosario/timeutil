@@ -79,6 +79,12 @@ func (tu *Time) Now() string {
 	return tu.GetLocalTime().Format("2006-01-02 15:04:05")
 }
 
+// FormatDate parses the value of the given time then formats it equivalent to the format given
+func (tu *Time) FormatDate(layout string, value string) string {
+	date, _ := time.Parse(layout, value)
+	retutn date.Format(layout)
+}
+
 // TimeMs Returns Unix time in milliseconds for benchmarking Svc performance.
 func TimeMs() int64 {
 	return time.Now().UnixNano() / 1000000
