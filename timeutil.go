@@ -39,22 +39,22 @@ package timeutil
 
 import "time"
 
-// TimeUtil ...
-type TimeUtil struct {
+// Time Time utility
+type Time struct {
 	TZ     string
 	Elapse Elapse
 }
 
 // New create new TimeUtil instance
-func New(timezone string) TimeUtil {
-	return TimeUtil{
+func New(timezone string) Time {
+	return Time{
 		TZ:     timezone,
 		Elapse: Elapse{},
 	}
 }
 
 // GetLocalTime get local time based on timezone. Sets 'Asia/Sinagpore' as the default timezone if not set
-func (tu *TimeUtil) GetLocalTime() time.Time {
+func (tu *Time) GetLocalTime() time.Time {
 	if tu.TZ == "" {
 		tu.TZ = "Asia/Singapore"
 	}
@@ -65,17 +65,17 @@ func (tu *TimeUtil) GetLocalTime() time.Time {
 }
 
 // CurrentDate Get system's current date
-func (tu *TimeUtil) CurrentDate() string {
+func (tu *Time) CurrentDate() string {
 	return tu.GetLocalTime().Format("2006-01-02")
 }
 
 // CurrentTime Get system's current time
-func (tu *TimeUtil) CurrentTime() string {
+func (tu *Time) CurrentTime() string {
 	return tu.GetLocalTime().Format("15:04:05")
 }
 
 // Now Get the system's current date and time
-func (tu *TimeUtil) Now() string {
+func (tu *Time) Now() string {
 	return tu.GetLocalTime().Format("2006-01-02 15:04:05")
 }
 
