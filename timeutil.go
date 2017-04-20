@@ -3,13 +3,15 @@ package timeutil
 import "time"
 
 type TimeUtil struct {
-	TZ string
+	TZ     string
+	Elapse Elapse
 }
 
 // New create new TimeUtil instance
 func New(timezone string) TimeUtil {
 	return TimeUtil{
-		TZ: timezone,
+		TZ:     timezone,
+		Elapse: Elapse{},
 	}
 }
 
@@ -40,6 +42,6 @@ func (tu *TimeUtil) Now() string {
 }
 
 // TimeMs Returns Unix time in milliseconds for benchmarking Svc performance.
-func (tu *TimeUtil) TimeMs() int64 {
+func TimeMs() int64 {
 	return time.Now().UnixNano() / 1000000
 }
