@@ -82,7 +82,7 @@ func (tu *Time) Now() string {
 // FormatDate parses the value of the given time then formats it equivalent to the format given
 func (tu *Time) FormatDate(layout string, value string) string {
 	date, _ := time.Parse(layout, value)
-	retutn date.Format(layout)
+	return date.Format(layout)
 }
 
 // TimeMs Returns Unix time in milliseconds for benchmarking Svc performance.
