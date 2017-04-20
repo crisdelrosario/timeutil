@@ -1,5 +1,5 @@
 /*
-This is just a helper function for getting the current time, eitther based on timezone provided or just the default time.
+This is just a helper function for getting the current time, either based on timezone provided or just the default time.
 
 Getting the current date and time example
 
@@ -35,7 +35,6 @@ Getting elapsed time
 			fmt.Println("Elapsed Time: ", elapsed, measurement)
 
 */
-
 package timeutil
 
 import "time"
@@ -54,7 +53,7 @@ func New(timezone string) TimeUtil {
 	}
 }
 
-// GetLocaTime get local time based on timezone. Sets 'Asia/Sinagpore' as the default timezone if not set
+// GetLocalTime get local time based on timezone. Sets 'Asia/Sinagpore' as the default timezone if not set
 func (tu *TimeUtil) GetLocalTime() time.Time {
 	if tu.TZ == "" {
 		tu.TZ = "Asia/Singapore"

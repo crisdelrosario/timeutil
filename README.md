@@ -2,7 +2,7 @@
 --
     import "github.com/crisdelrosario/timeutil"
 
-This is just a helper function for getting the current time, eitther based on
+This is just a helper function for getting the current time, either based on
 timezone provided or just the default time.
 
 Getting the current date and time example
